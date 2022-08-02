@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Skeleton from 'react-loading-skeleton';
-
+import { Link } from 'react-router-dom'
 const Products = () => {
 
     const [data, setData] = useState([]);
@@ -91,7 +91,7 @@ const Products = () => {
                                             ${producto.price}
                                         </p>
 
-                                        <a href="nothing" className="btn btn-primary"> Agregar al carrito</a>
+                                        <Link to={`/products/${producto.id}`} className="btn btn-primary"> Comprar</Link>
                                     </div>
                                 </div>
 
