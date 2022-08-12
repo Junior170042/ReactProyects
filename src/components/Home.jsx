@@ -12,7 +12,7 @@ const Home = () => {
                     <div className="container">
 
                         <h5 className="card-title display-3 fw-bolder m-0">LA MODA ES SENCILLA</h5>
-                        <p className="card-text lead fs-2">Te llevamos la moda a tu gusto</p>
+                        <p className="card-text lead fs-2">Te la llevamos a tu gusto!</p>
                         <p className="card-text">J7coder designer</p>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
 import { Link } from 'react-router-dom'
 const Products = () => {
 
@@ -81,9 +82,9 @@ const Products = () => {
                 {filter.map((producto) => {
                     return (
                         <>
-                            <div className="col-md-3 mb-4" >
+                            <div className="col-md-3 mb-4" key={producto.id}  >
 
-                                <div className="card h-100 p-4 text-center" key={producto.id} >
+                                <div className="card h-100 p-4 text-center"  >
                                     <img src={producto.image} className="card-img-top" alt={producto.title} height="250px" />
                                     <div className="card-body">
                                         <h5 className="card-title mb-0">{producto.title.substring(0, 12)}...</h5>

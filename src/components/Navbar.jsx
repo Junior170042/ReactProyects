@@ -1,7 +1,28 @@
 import React from 'react'
 import { NavLink } from "react-router-dom"
-
+import { useSelector } from 'react-redux'
 const Navbar = () => {
+
+    const state = useSelector(state => state.handleCart)
+
+    const setQuantity = () => {
+
+        var i = 0;
+        while (i < state.length) {
+            var quantity = 0;
+            // eslint-disable-next-line no-loop-func
+            state.forEach(item => {
+                quantity += parseInt(item.qty)
+
+            })
+            i++;
+        }
+
+        return quantity > 0 ? quantity : state.length
+    }
+
+
+
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-light py-3 shadow-sm bg-white">
@@ -40,7 +61,7 @@ const Navbar = () => {
 
                             <NavLink className="btn btn-outline-dark ms-2" to="/cart">
                                 <i className="fa fa-shopping-cart me-1">
-                                </i>Canasta (0) </NavLink>
+                                </i>Canasta ({setQuantity()}) </NavLink>
                         </div>
 
                     </div>
