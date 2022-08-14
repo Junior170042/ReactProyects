@@ -1,24 +1,42 @@
 import React from 'react'
-import J7coder from "./Images/junior7.png"
+import J7coder from "./Images/junior7coder.png"
 import Products from './Products'
 const Home = () => {
     return (
-        <div className="hero">
+        <>
 
-            <div className="card text-bg-dark bgs">
-                <img src={J7coder} className="card-img" alt="..." />
 
-                <div className="card-img-overlay d-flex flex-column justify-content-center">
-                    <div className="container">
+            <div className="container bgs text-white">
 
-                        <h5 className="card-title display-3 fw-bolder m-0">LA MODA ES SENCILLA</h5>
-                        <p className="card-text lead fs-2">Te la llevamos a tu gusto!</p>
-                        <p className="card-text">J7coder designer</p>
+                <div className="row">
+
+                    <div className="col-md-12 m-5">
+
+
+                        <h3 className=" title display-2 fw-bolder">LA MODA ES SENCILLA</h3>
+                        <p className="lead fs-1 px-1">Te la llevamos a tu gusto!</p>
+
+
                     </div>
                 </div>
+                <div className="row">
+                    <div className="col-md-8 text-end">
+
+                        <img src={J7coder} alt="Title-img" />
+                    </div>
+
+                    <div className="col-md-6"> <p className="lead px-1">J7coder designer</p></div>
+
+
+                </div>
+
+
             </div>
-            <Products />
-        </div>
+
+            <div className="container">
+                <Products />
+            </div>
+        </>
     )
 }
 

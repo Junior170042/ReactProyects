@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css'
-import { Link } from 'react-router-dom'
+import ShowProducts from './ShowProducts ';
 const Products = () => {
 
     const [data, setData] = useState([]);
@@ -14,15 +14,13 @@ const Products = () => {
         const getProducts = async () => {
             setLoading(true)
             const response = await fetch(`http://fakestoreapi.com/products`)
-            const data = await response.clone().json()
-            const filters = await response.json()
+            const data = await response.json()
 
             if (mounted) {
                 setData(data)
-                setFilter(filters)
+                setFilter(data)
                 setLoading(false)
 
-                console.log(filter)
             }
             // eslint-disable-next-line react-hooks/exhaustive-deps
             mounted = false
@@ -32,6 +30,7 @@ const Products = () => {
 
     }, []);
 
+    //Loading
     const Loading = () => {
         return (
 
@@ -61,64 +60,41 @@ const Products = () => {
         )
     }
 
+    //filter product by category
     const filterProduct = (filt) => {
         const updateList = data.filter((x) => x.category === filt)
 
         setFilter(updateList)
     }
 
-    const ShowProducts = () => {
 
-        return (
-            <>
-                <div className="buttons d-flex justify-content-center mb-5 pb-5">
-                    <div className="btn btn-outline-dark me-2" onClick={() => setFilter(data)}>Todos</div>
-                    <div className="btn btn-outline-dark me-2" onClick={() => filterProduct("men's clothing")}>Hombre</div>
-                    <div className="btn btn-outline-dark me-2" onClick={() => filterProduct("women's clothing")}>Mujer</div>
-                    <div className="btn btn-outline-dark me-2" onClick={() => filterProduct("electronics")}>Electronico</div>
-                    <div className="btn btn-outline-dark me-2" onClick={() => filterProduct("jewelery")}>Joyas</div>
-                </div>
-
-                {filter.map((producto) => {
-                    return (
-                        <>
-                            <div className="col-md-3 mb-4" key={producto.id}  >
-
-                                <div className="card h-100 p-4 text-center"  >
-                                    <img src={producto.image} className="card-img-top" alt={producto.title} height="250px" />
-                                    <div className="card-body">
-                                        <h5 className="card-title mb-0">{producto.title.substring(0, 12)}...</h5>
-                                        <p className="card-text fw-bold lead">
-                                            ${producto.price}
-                                        </p>
-
-                                        <Link to={`/products/${producto.id}`} className="btn btn-primary"> Comprar</Link>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </>
-                    )
-                })}
-            </>
-        )
-    }
 
     return (
-        <div>
-            <div className="container my-5 py-5">
+        <>
+            <div className="container my-3 py-3">
                 <div className="row">
                     <div className="col-12 mb-5">
                         <h1 className="display-6 fw-bolder text-center">ULTIMOS PRODUCTOS</h1>
                         <hr />
                     </div>
                 </div>
+            </div>
+            <div className="container">
+                <div className=" containers d-flex justify-content-center mb-5 pb-5">
+                    <div className=" button-lg btn btn-outline-dark me-2" onClick={() => setFilter(data)}>Todos</div>
+                    <div className="button-lg btn btn-outline-dark me-2" onClick={() => filterProduct("jewelery")}>Joyas</div>
+                    <div className=" button-lg btn btn-outline-dark me-2" onClick={() => filterProduct("men's clothing")}>Hombre</div>
+                    <div className=" button-lg btn btn-outline-dark me-2" onClick={() => filterProduct("women's clothing")}>Mujer</div>
+                    <div className=" button-lg btn btn-outline-dark me-2" onClick={() => filterProduct("electronics")}>Electronico</div>
+
+                </div>
+
 
                 <div className="row justify-content-center">
-                    {loading ? <Loading /> : <ShowProducts />}
+                    {loading ? <Loading /> : <><ShowProducts filters={filter} /></>}
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

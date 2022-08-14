@@ -57,48 +57,52 @@ const Product = () => {
     const ShowProduct = () => {
         return (
             <>
-                <div className="col-md-6 my-4">
-                    <img alt={producto.tilte} src={producto.image}
-                        height="400px" width="400px"
-                    />
-                </div>
+                <div className="container py-5">
+                    <div className="row py-5" key={producto.id}>
 
-                <div className="col-md-6 my-4">
-                    <h4 className="text-uppercase text-black-50">
-                        {producto.category}
-                    </h4>
-                    <h1 className='display-5'>{producto.title}</h1>
-                    <p className='lead fw-bolder'>
-                        Calificacion {producto.rating && producto.rating.rate}
-                        <i className='fa fa-star'></i>
-                    </p>
+                        <div className="col-md-6 my-4">
+                            <img alt={producto.tilte} src={producto.image}
+                                height="400px" width="400px"
+                            />
+                        </div>
 
-                    <h3 className='fw-bold display-6 my-4'>
-                        ${producto.price}
-                    </h3>
+                        <div className="col-md-6 my-4">
+                            <h4 className="text-uppercase text-black-50">
+                                {producto.category}
+                            </h4>
+                            <h1 className='display-5'>{producto.title}</h1>
+                            <p className='lead fw-bolder'>
+                                Calificacion {producto.rating && producto.rating.rate}
+                                <i className='fa fa-star'></i>
+                            </p>
 
-                    <p className='lead'>{producto.description}</p>
+                            <h3 className='fw-bold display-6 my-4'>
+                                ${producto.price}
+                            </h3>
 
-                    {
-                        existing.length > 0 ? <button className="btn btn-outline-dark px-4 py-2"
-                            onClick={() => addProduct(producto)}> Agregar más
-                        </button> :
-                            <button className="btn btn-outline-dark px-4 py-2" onClick={() => addProduct(producto)}> Agregar al carrito</button>
-                    }
+                            <p className='lead'>{producto.description}</p>
 
-                    <NavLink to="/cart" className='btn btn-dark ms-2 px-3 py-2'> Ir al carrito</NavLink>
+                            {
+                                existing.length > 0 ? <button className="btn btn-outline-dark px-4 py-2"
+                                    onClick={() => addProduct(producto)}> Agregar más
+                                </button> :
+                                    <button className="btn btn-outline-dark px-4 py-2" onClick={() => addProduct(producto)}> Agregar al carrito</button>
+                            }
+
+                            <NavLink to="/cart" className='btn btn-dark ms-2 px-3 py-2'> Ir al carrito</NavLink>
+                        </div>
+                    </div>
                 </div>
             </>
         )
     }
 
     return (
-        <div className="container py-5">
-            <div className="row py-5">
-                {loading ? <Loading /> : <ShowProduct />}
-            </div>
-
-        </div>
+        <>
+            {
+                loading ? <Loading /> : <ShowProduct />
+            }
+        </>
     )
 }
 

@@ -25,7 +25,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg bg-light py-3 shadow-sm bg-white">
+            <nav className=" navbar navbar-light navbar-expand-lg py-3 shadow-sm">
                 <div className="container">
                     <NavLink className="navbar-brand fw-bol fs-4" to="/">TU MERCADO EN LINEA!</NavLink>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
+                                <NavLink className="nav-link active" to="/">Home</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/products">Productos</NavLink>
@@ -59,7 +59,7 @@ const Navbar = () => {
                                 <i className="fa fa-user-plus me-1">
                                 </i>Registrar </NavLink>
 
-                            <NavLink className="btn btn-outline-dark ms-2" to="/cart">
+                            <NavLink className="btn btn-outline-dark my-3 ms-2" to="/cart">
                                 <i className="fa fa-shopping-cart me-1">
                                 </i>Canasta ({setQuantity()}) </NavLink>
                         </div>
