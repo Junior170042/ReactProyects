@@ -1,13 +1,158 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: rgb(2, 0, 12);
+}
+
+.nav-bar {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.nav-bar a {
+  float: left;
+  display: block;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  text-decoration: none;
+  padding: 14px 40px;
+  margin-right: 10px;
+}
+
+.nav-bar a:first-child {
+  font-size: 35px;
+}
+
+.nav-bar a:hover:not(.logo) {
+  border-bottom: solid 3px red;
+}
+
+.active:not(.logo) {
+  border-bottom: solid 3px red;
+}
+
+.nav-bar form {
+  margin: 8px 0 6px 25px;
+  padding: 8px;
+  display: flex;
+  width: 30%;
+  height: 40px;
+  background-color: rgb(13, 9, 32);
+  border-radius: 24px;
+}
+.nav-bar form input {
+  height: 30px;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.836);
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 10px;
+  padding: 4px 4px 4px 6px;
+  font-size: 20px;
+  background-color: rgb(13, 9, 32);
+}
+
+.nav-bar form i {
+  color: #fff;
+  float: right;
+  margin: 4px 2px 2px 10px;
+  font-size: 30px;
+}
+
+.nav-bar form i:hover {
+  transform: scale(1.2);
+}
+
+form input:focus {
+  outline: none;
+}
+
+.nav-bar button.icon {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .container .nav-bar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .nav-bar a:not(:first-child),
+  .nav-bar .form {
+    display: none;
+  }
+
+  .nav-bar button.icon {
+    float: right;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 25px;
+    margin: 30px 24px 0 0;
+  }
+
+  .nav-bar button {
+    border: none;
+    border-radius: 3px;
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    color: #fff;
+  }
+
+  .nav-bar.responsives {
+    position: relative;
+  }
+  /* Para que los elementos del navbar se vean uno abajo del otro */
+
+  .nav-bar.responsives a,
+  .nav-bar.responsives form {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .responsives form {
+    width: 85%;
+    margin-right: 20px;
+    height: 30px;
+  }
+
+  .responsives form input {
+    margin: auto;
+    width: 60%;
+    padding: auto;
+    height: 25px;
+    font-size: 18px;
+  }
+
+  .responsives form i {
+    margin: 2px 4px 10px 2px;
+    width: 40px;
+  }
+
+  .responsives a:not(:first-child) {
+    font-size: 18px;
+  }
 }
