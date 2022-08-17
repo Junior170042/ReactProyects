@@ -7,26 +7,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-.container {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  background: rgb(2, 0, 12);
-}
-
-.nav-bar {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-}
-
-.nav-bar a {
+.nav-bar .drops {
+  background-color: transparent;
+  border: none;
   float: left;
   display: block;
   color: #fff;
@@ -35,6 +18,113 @@ code {
   text-decoration: none;
   padding: 14px 40px;
   margin-right: 10px;
+}
+
+.drops:hover {
+  outline: none;
+  border-color: none;
+  background-color: transparent;
+  background: none;
+  border-bottom: 2px solid rgb(247, 5, 5);
+}
+
+.dropdown-menu {
+  background: rgb(6, 4, 14) !important;
+  border: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.page-link {
+  font-size: 20px;
+}
+.btn-play {
+  width: 50%;
+  font-size: 20px;
+}
+
+.titulo {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 60px;
+  color: rgb(212, 204, 182);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  letter-spacing: 2px;
+}
+.home {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: rgb(6, 4, 14);
+}
+
+.popular {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: rgb(6, 4, 14);
+}
+
+.cards {
+  background-color: rgb(17, 12, 41);
+}
+
+.cards:hover {
+  border-right: 3px solid rgb(5, 248, 115);
+  border-bottom: 3px solid rgba(131, 240, 7, 0.603);
+  transform: scale(1.02);
+  opacity: 0.6;
+}
+
+.titles {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: rgb(197, 161, 113);
+}
+
+.years {
+  font-family: Impact;
+  font-size: 24px;
+  color: rgb(131, 136, 103);
+}
+
+.years span {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 24px;
+  color: rgb(214, 211, 206);
+}
+
+.nav-bar {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: rgb(2, 0, 12);
+}
+
+.nav-bar a.hide {
+  display: none;
+}
+
+.nav-bar a,
+.nav-bar .dropdown-menu .dropdown-item {
+  float: left;
+  display: block;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  text-decoration: none;
+  padding: 14px 40px;
+  margin-right: 10px;
+}
+
+.nav-bar .dropdown-menu .dropdown-item:hover {
+  background-color: transparent;
 }
 
 .nav-bar a:first-child {
@@ -50,11 +140,11 @@ code {
 }
 
 .nav-bar form {
-  margin: 8px 0 6px 25px;
+  margin: 14px 0 6px 40px;
   padding: 8px;
   display: flex;
   width: 30%;
-  height: 40px;
+  height: 50px;
   background-color: rgb(13, 9, 32);
   border-radius: 24px;
 }
@@ -73,7 +163,7 @@ code {
 .nav-bar form i {
   color: #fff;
   float: right;
-  margin: 4px 2px 2px 10px;
+  margin: 4px 2px 2px 14px;
   font-size: 30px;
 }
 
@@ -89,8 +179,8 @@ form input:focus {
   display: none;
 }
 
-@media screen and (max-width: 500px) {
-  .container .nav-bar {
+@media screen and (max-width: 550px) {
+  .nav-bar {
     position: relative;
     width: 100%;
     height: auto;
@@ -98,6 +188,7 @@ form input:focus {
   }
 
   .nav-bar a:not(:first-child),
+  .nav-bar .drops,
   .nav-bar .form {
     display: none;
   }
@@ -124,6 +215,11 @@ form input:focus {
   .nav-bar.responsives {
     position: relative;
   }
+
+  .nav-bar.responsives .dropdown-menu {
+    position: absolute;
+    margin-bottom: 20px;
+  }
   /* Para que los elementos del navbar se vean uno abajo del otro */
 
   .nav-bar.responsives a,
@@ -133,12 +229,20 @@ form input:focus {
     text-align: left;
   }
 
-  .responsives form {
-    width: 85%;
-    margin-right: 20px;
-    height: 30px;
+  .nav-bar.responsives .drops {
+    display: none;
   }
 
+  .responsives form {
+    width: 80%;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: 50px;
+  }
+
+  .titulo {
+    font-size: 40px;
+  }
   .responsives form input {
     margin: auto;
     width: 60%;
