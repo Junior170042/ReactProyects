@@ -10,11 +10,13 @@ const ShowMovies = ({ movies }) => {
         return language;
     }
     const path = "https://image.tmdb.org/t/p/w500"
+
     const verMovies = movie => {
         return (
             <div className="col-sm-4" key={movie.id}>
                 <div className="card mx-2 my-2 cards" >
-                    <img className="card-img-top" src={path + movie.poster_path} alt={movie.title} />
+                    <img className="card-img-top" src={path + movie.poster_path}
+                        alt={movie.title} />
                     <div className="card-body text-center">
                         <h4 className="card-title titles">{movie.title}</h4>
                         <p className="card-text years">Año : <span>{movie.release_date.substring(0, 4)}</span></p>

@@ -5,8 +5,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(6, 4, 14);
 }
 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/*Drop-down menu items */
 .nav-bar .drops {
   background-color: transparent;
   border: none;
@@ -33,11 +40,6 @@ body {
   border: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 .page-link {
   font-size: 20px;
 }
@@ -54,14 +56,19 @@ code {
   padding-bottom: 12px;
   letter-spacing: 2px;
 }
+
 .home {
   width: 100%;
   margin: 0;
   padding: 0;
   background: rgb(6, 4, 14);
+  height: 100%;
 }
 
-.popular {
+.popular,
+.enfantiles,
+.comedies,
+.dramas {
   width: 100%;
   margin: 0;
   padding: 0;
@@ -98,6 +105,7 @@ code {
   color: rgb(214, 211, 206);
 }
 
+/*The navbar*/
 .nav-bar {
   margin: 0;
   padding: 0;
@@ -139,12 +147,15 @@ code {
   border-bottom: solid 3px red;
 }
 
+/*The form*/
 .nav-bar form {
-  margin: 14px 0 6px 40px;
+  margin: 20px 0 12px 40px;
   padding: 8px;
-  display: flex;
-  width: 30%;
+  display: inline-block;
+  width: 80%;
   height: 50px;
+  margin-left: 80px;
+  float: none;
   background-color: rgb(13, 9, 32);
   border-radius: 24px;
 }
@@ -155,15 +166,17 @@ code {
   border-radius: 8px;
   border: none;
   margin-bottom: 10px;
-  padding: 4px 4px 4px 6px;
+  padding: 4px 4px 4px 20px;
   font-size: 20px;
   background-color: rgb(13, 9, 32);
 }
 
-.nav-bar form i {
+.nav-bar form a i {
   color: #fff;
-  float: right;
-  margin: 4px 2px 2px 14px;
+  position: absolute;
+  top: 105px;
+  right: 200px;
+  margin: 1px 2px 12px 14px;
   font-size: 30px;
 }
 
@@ -179,7 +192,8 @@ form input:focus {
   display: none;
 }
 
-@media screen and (max-width: 550px) {
+/* handling responsives size of screen (4 sizes alest) */
+@media screen and (max-width: 920px) {
   .nav-bar {
     position: relative;
     width: 100%;
@@ -212,21 +226,21 @@ form input:focus {
     color: #fff;
   }
 
-  .nav-bar.responsives {
-    position: relative;
-  }
-
   .nav-bar.responsives .dropdown-menu {
     position: absolute;
     margin-bottom: 20px;
   }
   /* Para que los elementos del navbar se vean uno abajo del otro */
 
-  .nav-bar.responsives a,
-  .nav-bar.responsives form {
+  .nav-bar.responsives a {
     float: none;
     display: block;
     text-align: left;
+  }
+  .nav-bar.responsives form {
+    display: block;
+    text-align: left;
+    width: 85%;
   }
 
   .nav-bar.responsives .drops {
@@ -235,7 +249,7 @@ form input:focus {
 
   .responsives form {
     width: 80%;
-    margin-right: 10px;
+    text-align: center;
     margin-bottom: 10px;
     height: 50px;
   }
@@ -243,20 +257,63 @@ form input:focus {
   .titulo {
     font-size: 40px;
   }
-  .responsives form input {
-    margin: auto;
+  .nav-bar.responsives form input {
+    position: absolute;
+    margin-top: 10px;
     width: 60%;
     padding: auto;
-    height: 25px;
+    height: 20px;
     font-size: 18px;
   }
 
-  .responsives form i {
-    margin: 2px 4px 10px 2px;
-    width: 40px;
+  .nav-bar.responsives form a i {
+    top: 382px;
+    right: 100px;
+    font-size: 35px;
+    margin-bottom: 10px;
   }
 
-  .responsives a:not(:first-child) {
+  .nav-bar.responsives a:not(:first-child) {
     font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .nav-bar.responsives form a i {
+    right: 40px;
+  }
+  .nav-bar.responsives form {
+    width: 90%;
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nav-bar.responsives form a i {
+    right: 40px;
+    padding-bottom: 20px;
+  }
+
+  .nav-bar.responsives form {
+    width: 90%;
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .nav-bar.responsives form a i {
+    right: 10px;
+    font-size: 30px;
+  }
+
+  .nav-bar.responsives form input[type="text"] {
+    width: 100%;
+  }
+
+  .nav-bar.responsives form {
+    width: 100%;
+    margin-left: 4px;
+    margin-right: 4px;
+    height: 50px;
   }
 }

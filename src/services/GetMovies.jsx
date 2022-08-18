@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import Loading from '../components/Loading';
 import ShowMovies from '../components/ShowMovies';
+import NoMovies from './NoMovies';
+
+
 const GetMovies = ({ _URL }) => {
 
     const [movies, setMovies] = useState([])
     const [loading, setLoading] = useState(false)
     let mounted = true;
 
+
     useEffect(() => {
 
         const fetchMovies = async () => {
-            const url2 = `https://api.themoviedb.org/3/search/movie?api_key=ce34f04e42f935f347ac371d31c2b114&query=superman`;
 
             setLoading(true)
             const getDatas = await fetch(_URL);
@@ -21,7 +24,6 @@ const GetMovies = ({ _URL }) => {
 
                 setMovies(data.results)
                 console.log(data.results)
-                console.log(data.page)
                 setLoading(false)
             }
             // eslint-disable-next-line 
@@ -33,12 +35,16 @@ const GetMovies = ({ _URL }) => {
     }, [_URL])
 
     return (
-        <>
-            <div className="row mx-auto">
-                {loading ? <Loading /> : <ShowMovies movies={movies} />}
-            </div>
 
-        </>
+        <div className="row mx-auto">
+            {
+                movies.length > 0 && loading ? <Loading /> : <ShowMovies movies={movies} />
+            }
+
+            {movies.length === 0 && <> {loading ? <Loading /> : < NoMovies title="No hay peliculas!" />}</>}
+        </div>
+
+
     )
 
 }
