@@ -20,15 +20,23 @@ const Login = () => {
         const pass = e.target.pwd.value;
 
         if (register) {
-
-            const newUser = await createUserWithEmailAndPassword(auth, correo, pass)
-            console.log(newUser);
+            try {
+                const newUser = await createUserWithEmailAndPassword(auth, correo, pass)
+                console.log(newUser);
+                e.target.reset();
+            } catch (err) {
+                console.log(err.code);
+            }
         } else {
-            signInWithEmailAndPassword(auth, correo, pass);
+            try {
+                await signInWithEmailAndPassword(auth, correo, pass);
+            } catch (err) {
+                console.log(err.code);
+            }
 
         }
 
-        e.target.reset();
+
     }
     return (
         <>
@@ -40,7 +48,7 @@ const Login = () => {
                             Email:
                         </label>
                         <input
-                            type="email"
+                            type="mail"
                             className="form-control"
                             id="email"
                             placeholder="Enter email"
