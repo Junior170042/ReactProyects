@@ -21,7 +21,7 @@ const GetMovies = ({ _URL }) => {
             const data = await getDatas.json();
 
             if (mounted) {
-                setMovies(data.results);
+                setMovies(await data.results);
                 setLoading(false)
             }
             // eslint-disable-next-line 
@@ -38,7 +38,7 @@ const GetMovies = ({ _URL }) => {
 
         <div className="row mx-auto">
             {
-                movies.length > 0 && loading ? <Loading /> : <ShowMovies movies={movies} />
+                movies.length !== 0 && loading ? <Loading /> : <ShowMovies movies={movies} />
             }
 
             {movies.length === 0 && <> {loading ? <Loading /> : < NoMovies title="No se encuentra peliculas" />}</>}

@@ -4,7 +4,6 @@ import Loading from '../components/Loading';
 const GetMovie = ({ _URL }) => {
 
     const [movies, setMovies] = useState({})
-    const [loading, setLoading] = useState(false)
     let mounted = true;
 
     const ShowMovie = (movies) => {
@@ -45,14 +44,11 @@ const GetMovie = ({ _URL }) => {
 
         const fetchMovies = async () => {
 
-            setLoading(true)
             const getDatas = await fetch(_URL);
             const data = await getDatas.json()
             if (mounted) {
 
-                setMovies(data)
-
-                setLoading(false)
+                setMovies(await data)
             }
             // eslint-disable-next-line 
             mounted = false;
@@ -68,7 +64,7 @@ const GetMovie = ({ _URL }) => {
 
         <>
             {
-                movies && loading ? <Loading /> : ShowMovie(movies)
+                movies && ShowMovie(movies)
             }
         </>
     )

@@ -32,10 +32,11 @@ const ShowMovies = ({ movies }) => {
     return (
         <>
 
-            {movies.length !== 0 && movies.map(movie => {
-                return verMovies(movie)
+            {
+                movies.length !== 0 && movies.map(movie => {
+                    return verMovies(movie)
 
-            })
+                })
             }
 
 
