@@ -33,7 +33,7 @@ const ShowMovies = ({ movies }) => {
         <>
 
             {
-                movies.length !== 0 && movies.map(movie => {
+                movies.map(movie => {
                     return verMovies(movie)
 
                 })

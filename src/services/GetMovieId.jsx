@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Loading from '../components/Loading';
 
 const GetMovie = ({ _URL }) => {
 
@@ -50,12 +49,12 @@ const GetMovie = ({ _URL }) => {
 
                 setMovies(await data)
             }
-            // eslint-disable-next-line 
+
             mounted = false;
         }
 
         fetchMovies()
-        // eslint-disable-next-line 
+
     }, [_URL])
 
 

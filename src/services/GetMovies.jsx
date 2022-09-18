@@ -24,12 +24,12 @@ const GetMovies = ({ _URL }) => {
                 setMovies(await data.results);
                 setLoading(false)
             }
-            // eslint-disable-next-line 
+
             mounted = false;
         }
 
         fetchMovies()
-        // eslint-disable-next-line 
+
     }, [_URL])
 
 
@@ -41,7 +41,13 @@ const GetMovies = ({ _URL }) => {
                 movies.length !== 0 && loading ? <Loading /> : <ShowMovies movies={movies} />
             }
 
-            {movies.length === 0 && <> {loading ? <Loading /> : < NoMovies title="No se encuentra peliculas" />}</>}
+            {
+                movies.length === 0 && <>
+                    {
+                        loading ? <Loading /> : < NoMovies title="No se encuentra peliculas" />
+                    }
+                </>
+            }
         </div>
 
 
