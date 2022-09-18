@@ -1,4 +1,4 @@
-//for add to cart 
+//for adding products to the  cart 
 
 export const addCart = (product) => {
     return {
