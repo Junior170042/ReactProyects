@@ -30,7 +30,7 @@ const Navbar = () => {
     return (
         <>
             <nav className="nav-bar" id="myNav">
-                <NavLink to="/" className="logo active"> MovieLand</NavLink>
+                <NavLink to="/" className="logo active land"> MovieLand</NavLink>
                 <NavLink to="/" className="link "> Inicio</NavLink>
                 <NavLink to="/populares" className="link"> Más populares</NavLink>
 
@@ -64,12 +64,12 @@ const Navbar = () => {
                 </ul>
 
 
-                <form className="form" >
+                <form className="form p-2" >
                     <input type="text" value={key_word}
                         placeholder="Pelis, actor, palabra ..."
                         onChange={(e) => handleChange(e)}
                     ></input>
-                    <NavLink to={`/buscador/${keyManage(key_word)}`} className="logo">  <i className="fa fa-search"></i></NavLink>
+                    <NavLink to={`/buscador/${keyManage(key_word)}`} className="logo">  <i className="fa fa-search pt-2"></i></NavLink>
 
                 </form>
 

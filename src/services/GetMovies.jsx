@@ -21,9 +21,7 @@ const GetMovies = ({ _URL }) => {
             const data = await getDatas.json();
 
             if (mounted) {
-
-                setMovies(data.results)
-                console.log(data.results)
+                setMovies(data.results);
                 setLoading(false)
             }
             // eslint-disable-next-line 
@@ -34,6 +32,8 @@ const GetMovies = ({ _URL }) => {
         // eslint-disable-next-line 
     }, [_URL])
 
+
+
     return (
 
         <div className="row mx-auto">
@@ -41,7 +41,7 @@ const GetMovies = ({ _URL }) => {
                 movies.length > 0 && loading ? <Loading /> : <ShowMovies movies={movies} />
             }
 
-            {movies.length === 0 && <> {loading ? <Loading /> : < NoMovies title="No hay peliculas!" />}</>}
+            {movies.length === 0 && <> {loading ? <Loading /> : < NoMovies title="No se encuentra peliculas" />}</>}
         </div>
 
 

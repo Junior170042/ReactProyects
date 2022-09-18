@@ -13,6 +13,12 @@ code {
     monospace;
 }
 
+.single {
+  color: rgb(219, 203, 182);
+  font-weight: bold;
+  font-size: 60px;
+}
+
 /*Drop-down menu items */
 .nav-bar .drops {
   background-color: transparent;
@@ -26,7 +32,9 @@ code {
   padding: 14px 40px;
   margin-right: 10px;
 }
-
+.land {
+  color: rgb(247, 6, 6) !important;
+}
 .drops:hover {
   outline: none;
   border-color: none;
@@ -190,6 +198,10 @@ form input:focus {
 
 .nav-bar button.icon {
   display: none;
+}
+
+.logo-search {
+  top: 60px;
 }
 
 /* handling responsives size of screen (4 sizes alest) */

@@ -21,8 +21,8 @@ const ShowMovies = ({ movies }) => {
                         <h4 className="card-title titles">{movie.title}</h4>
                         <p className="card-text years">Año : <span>{movie.release_date.substring(0, 4)}</span></p>
                         <p className="card-text years">Idioma : <span>{setLanguages(movie.original_language)}</span></p>
-                        <Link to="#" className="btn btn-primary btn-play">
-                            Ver <i className="fa fa-play"></i>
+                        <Link to={`/detalles/${movie.id}`} className="btn btn-primary btn-play">
+                            Detalles <i className="fa fa-arrow-right"></i>
                         </Link>
                     </div>
                 </div>
@@ -32,10 +32,10 @@ const ShowMovies = ({ movies }) => {
     return (
         <>
 
-            {movies.length !== 0 ? movies.map(movie => {
+            {movies.length !== 0 && movies.map(movie => {
                 return verMovies(movie)
 
-            }) : ''
+            })
             }
 
 

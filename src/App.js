@@ -9,6 +9,8 @@ import Kids from './pages/Kids';
 import Comedies from './pages/Comedies';
 import Dramas from './pages/Dramas';
 import Search from './pages/Search';
+import Footer from './components/Footer';
+import Detalles from './pages/Detalles';
 
 
 function App() {
@@ -22,8 +24,9 @@ function App() {
         <Route path="/comedias" element={<Comedies />} />
         <Route path="/dramas" element={<Dramas />} />
         <Route path="/buscador/:key" element={<Search />} />
+        <Route path="/detalles/:id" element={<Detalles />} />
       </Routes>
-
+      <Footer />
     </>
   );
 }
